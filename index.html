@@ -57,12 +57,17 @@
     code{background:rgba(255,255,255,.06); padding:2px 6px; border-radius:8px; border:1px solid rgba(255,255,255,.08)}
     /* New utilities */
     .centerfold{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:calc(100vh - 180px);margin:0 auto}
-    .big-title{font-size:clamp(48px,7vw,72px);line-height:1.05;margin:0 0 10px}
+    .big-title{font-size:clamp(48px,7vw,72px);line-height:1.05;margin:0 0 10px;display:inline-flex;align-items:flex-end;gap:.35em;white-space:nowrap}
     .sparkles{display:block;margin:8px auto 10px;width:clamp(120px,20vw,240px);height:auto;object-fit:contain}
+    .sparkles-inline{height:1em;width:auto;vertical-align:text-bottom;flex:0 0 auto}
     .sublead{font-size:clamp(24px,3.2vw,30px);line-height:1.25;margin:6px 0 16px;opacity:.9;text-align:center}
     .steps{display:inline-block;text-align:left;margin:0 auto;padding-left:22px;font-size:16px;line-height:1.6}
     .steps li{margin:10px 0}
     .btn.xl{padding:16px 24px;font-size:18px;border-radius:16px}
+    /* Allow wrapping on extra small screens to avoid overflow */
+    @media (max-width: 420px){
+      .big-title{ white-space:normal; }
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
@@ -71,15 +76,17 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <img src="/icon-128.png" alt="Prompt Writer logo" />
+        <img src="icon-128.png" alt="Prompt Writer logo" width="40" height="40" />
         <b>Prompt Writer</b>
       </div>
       
     </header>
 
     <main class="centerfold">
-      <h1 class="big-title">Prompt Writer is installed</h1>
-      <img class="sparkles" src="sparkles.png" alt="Sparkles decoration" />
+      <h1 class="big-title">
+        Prompt Writer is installed
+        <img class="sparkles-inline" src="sparkles.png" alt="" aria-hidden="true" />
+      </h1>
       <p class="sublead">To start using the extension, please:</p>
       <ol class="steps">
         <li>Open <b>chat.openai.com</b> (or any chatbot you prefer).</li>
