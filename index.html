@@ -68,6 +68,15 @@
     @media (max-width: 420px){
       .big-title{ white-space:normal; }
     }
+    /* Screenshots under steps (centered, readable size) */
+    .step-shot{
+      display:block;
+      margin:10px auto 0;                 /* next line, centered */
+      width:clamp(280px, 72vw, 900px);    /* responsive, comfortable cap */
+      height:auto;
+      object-fit:contain;
+      /* no borders or brand changes */
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
@@ -90,9 +99,18 @@
       <p class="sublead">To start using the extension, please:</p>
       <ol class="steps">
         <li>Open <b>chat.openai.com</b> (or any chatbot you prefer).</li>
-        <li>Type any text and <b>select it</b>.</li>
-        <li><b>Right-click</b> the selection → <b>Prompt Writer</b>.</li>
-        <li>Click <b>Optimize as Prompt</b> and continue with the mode you want to use.</li>
+        <li>
+    Type any text and <b>select it</b>.
+    <img class="step-shot" src="screenshot-1.png" alt="Screenshot: select text" />
+  </li>
+        <li>
+    <b>Right-click</b> the selection → <b>Prompt Writer</b>.
+    <img class="step-shot" src="screenshot-2.png" alt="Screenshot: right-click menu → Prompt Writer" />
+  </li>
+        <li>
+    Click <b>Optimize as Prompt</b> and continue with the mode you want to use.
+    <img class="step-shot" src="screenshot-3.png" alt="Screenshot: Optimize as Prompt" />
+  </li>
       </ol>
       <div class="actions" style="margin-top:28px">
         <a class="btn primary xl" href="https://chat.openai.com" target="_blank" rel="noopener">Try it out</a>
