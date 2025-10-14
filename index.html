@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prompt Writer — Welcome</title>
+  <meta name="description" content="Welcome to Prompt Writer — a Chrome extension that helps you turn rough ideas into crisp, high‑quality prompts in one click." />
+  <link rel="icon" href="/favicon.ico" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Prompt Writer — Welcome" />
+  <meta property="og:description" content="Turn rough ideas into crisp prompts. Install the extension and start faster." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og.png" />
+  <meta property="og:url" content="https://your-domain.tld/welcome" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root{
+      --bg:#0b1020; /* dark navy to work with your blue/yellow palette */
+      --card:#111933;
+      --text:#e6ecff;
+      --muted:#a9b4d0;
+      --brand:#1C2EDE; /* your blue */
+      --accent:#FFDF47; /* your yellow */
+      --ok:#12b886;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:radial-gradient(1200px 600px at 10% -10%, rgba(28,46,222,.25), transparent 60%),
+                     radial-gradient(1000px 500px at 110% 10%, rgba(255,223,71,.08), transparent 60%), var(--bg);
+         font:16px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; color:var(--text)}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px; margin:0 auto; padding:54px 20px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{width:40px; height:40px; border-radius:12px}
+    .brand b{font-size:20px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); color:var(--text); box-shadow:var(--shadow)}
+    .btn.primary{background:linear-gradient(180deg, #2F3EB6, #1C2EDE); border-color:#2636c6}
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn.ghost{background:transparent}
+    main{margin-top:48px; display:grid; grid-template-columns:1.05fr .95fr; gap:28px}
+    @media (max-width:900px){ main{grid-template-columns:1fr} }
+    .hero{background:linear-gradient(180deg, rgba(17,25,51,.7), rgba(17,25,51,.35)); padding:28px; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.06)}
+    h1{font-size:36px; line-height:1.1; margin:8px 0 12px}
+    .lead{color:var(--muted); font-size:18px}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(28,46,222,.16); color:#cdd5ff; font-size:13px; border:1px solid rgba(255,255,255,.12)}
+    .features{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:24px}
+    @media (max-width:600px){ .features{grid-template-columns:1fr} }
+    .feature{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); padding:16px; border-radius:16px}
+    .check{display:inline-block; width:20px; height:20px; border-radius:6px; background:linear-gradient(180deg, #16db93, #12b886); margin-right:10px}
+    .panel{background:linear-gradient(180deg, rgba(17,25,51,.7), rgba(17,25,51,.35)); padding:24px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow)}
+    .panel h3{margin:0 0 6px}
+    footer{margin:48px 0 16px; color:var(--muted); font-size:14px}
+    code{background:rgba(255,255,255,.06); padding:2px 6px; border-radius:8px; border:1px solid rgba(255,255,255,.08)}
+  </style>
+  <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
+  <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="/icon-128.png" alt="Prompt Writer logo" />
+        <b>Prompt Writer</b>
+      </div>
+      <nav class="cta">
+        <a class="btn ghost" href="#how">How it works</a>
+        <a class="btn ghost" href="#faq">FAQ</a>
+        <a class="btn primary" id="installBtn" href="https://chromewebstore.google.com/detail/xxxxxxxxxxxxxxxx" target="_blank" rel="noopener">Add to Chrome</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="pill">Welcome 👋 You’re all set!</span>
+        <h1>Turn rough ideas into crisp prompts in seconds</h1>
+        <p class="lead">Thanks for installing <b>Prompt Writer</b>. Open it from the toolbar icon or via right‑click → <i>Optimize as Prompt</i>. Below are 60‑second tips to get the most out of it.</p>
+        <div class="features">
+          <div class="feature"><span class="check"></span><b>Right‑click workflow.</b> Select text → Right‑click → Optimize as Prompt.</div>
+          <div class="feature"><span class="check"></span><b>Builders.</b> Summarize, Research, Rewrite, Translate, Polish.</div>
+          <div class="feature"><span class="check"></span><b>Copy & apply.</b> Click <i>Create & Copy</i> to paste the refined prompt anywhere.</div>
+          <div class="feature"><span class="check"></span><b>Keyboard tip.</b> Pin the extension and use it from any page.</div>
+        </div>
+        <div style="margin-top:18px">
+          <a class="btn primary" href="#how">See quick start</a>
+          <a class="btn" href="#faq">Read FAQ</a>
+        </div>
+      </section>
+
+      <aside class="panel" id="how">
+        <h3>Quick start (60 sec)</h3>
+        <ol>
+          <li>Click the <b>Prompt Writer</b> icon in your Chrome toolbar.</li>
+          <li>Pick a builder (e.g., <i>Rewrite</i>), paste or select your text.</li>
+          <li>Hit <b>Generate</b> → review → <b>Create & Copy</b>.</li>
+          <li>Paste the result back to your app (Docs, Gmail, Notion, etc.).</li>
+        </ol>
+        <p style="color:var(--muted)">Tip: use the right‑click menu for the fastest flow.</p>
+      </aside>
+    </main>
+
+    <section class="panel" id="faq" style="margin-top:28px">
+      <h3>FAQ</h3>
+      <details open>
+        <summary>Will this page open automatically after install?</summary>
+        <p>Yes. We open it once on first install so you can start quickly. On updates we may show a short “What’s new”.</p>
+      </details>
+      <details>
+        <summary>Privacy</summary>
+        <p>We don’t sell personal data. Read our <a href="/privacy.html">Privacy Policy</a>. For support: <a href="mailto:support@your-domain.tld">support@your-domain.tld</a>.</p>
+      </details>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Prompt Writer • <a href="/terms.html">Terms</a> • <a href="/privacy.html">Privacy</a>
+    </footer>
+  </div>
+
+  <script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional: capture UTM & extension version from query to analytics/localStorage
+    const params = new URLSearchParams(location.search);
+    const fromExt = params.get('v');
+    if(fromExt){
+      localStorage.setItem('ext_version', fromExt);
+    }
+  </script>
+</body>
+</html>
