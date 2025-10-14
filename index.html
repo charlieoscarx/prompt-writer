@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Prompt Writer — Installed</title>
   <meta name="description" content="Prompt Writer is installed — quick start steps to begin using the extension." />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="favicon.ico" />
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Prompt Writer — Welcome" />
   <meta property="og:description" content="Follow four simple steps to start using Prompt Writer right away." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/og.png" />
+  <meta property="og:image" content="og.png" />
   <meta property="og:url" content="https://your-domain.tld/welcome" />
   <meta name="twitter:card" content="summary_large_image" />
   <style>
@@ -42,6 +42,7 @@
     .btn.primary{background:linear-gradient(180deg, #2F3EB6, #1C2EDE); border-color:#2636c6}
     .btn.primary:hover{filter:brightness(1.05)}
     .btn.ghost{background:transparent}
+    /* Old layout kept for future use, but not used on this page */
     main{margin-top:48px; display:grid; grid-template-columns:1.05fr .95fr; gap:28px}
     @media (max-width:900px){ main{grid-template-columns:1fr} }
     .hero{background:linear-gradient(180deg, rgba(17,25,51,.7), rgba(17,25,51,.35)); padding:28px; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.06)}
@@ -54,8 +55,16 @@
     .check{display:inline-block; width:20px; height:20px; border-radius:6px; background:linear-gradient(180deg, #16db93, #12b886); margin-right:10px}
     .panel{background:linear-gradient(180deg, rgba(17,25,51,.7), rgba(17,25,51,.35)); padding:24px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow)}
     .panel h3{margin:0 0 6px}
-    footer{margin:48px 0 16px; color:var(--muted); font-size:14px}
     code{background:rgba(255,255,255,.06); padding:2px 6px; border-radius:8px; border:1px solid rgba(255,255,255,.08)}
+
+    /* === Centered welcome block (outside of any panels/boxes) === */
+    .centerfold{display:flex !important; flex-direction:column; align-items:center; justify-content:center; text-align:center; margin:0 auto; min-height:calc(100vh - 180px);}
+    .big-title{font-size:clamp(48px, 7vw, 72px); line-height:1.05; margin:0 0 10px}
+    .sublead{font-size:18px; color:var(--muted); margin:0 0 18px}
+    .steps{display:inline-block; text-align:left; margin:0 auto; padding-left:22px; font-size:16px; line-height:1.6}
+    .steps li{margin:10px 0}
+    .actions{margin-top:28px}
+    .btn.xl{padding:16px 24px; font-size:18px; border-radius:16px}
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
@@ -64,41 +73,34 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <img src="/icon-128.png" alt="Prompt Writer logo" />
+        <img src="icon-128.png" alt="Prompt Writer logo" />
         <b>Prompt Writer</b>
       </div>
-      
     </header>
 
-    <main>
-      <section class="hero" style="text-align:center">
-        <h1 style="margin-top:0">Prompt Writer is installed</h1>
-        <p class="lead" style="margin-top:8px">To start using the extension, please:</p>
-        <ol style="display:inline-block; text-align:left; margin:18px auto 0; padding-left:20px">
-          <li style="margin:10px 0">Open <b>chat.openai.com</b> (or any chatbot you prefer).</li>
-          <li style="margin:10px 0">Type any text and <b>select it</b>.</li>
-          <li style="margin:10px 0"><b>Right-click</b> the selection → <b>Prompt Writer</b>.</li>
-          <li style="margin:10px 0">Click <b>Optimize as Prompt</b> and continue with the mode you want to use.</li>
-        </ol>
-        <div style="margin-top:28px">
-          <a class="btn primary" href="https://chat.openai.com" target="_blank" rel="noopener">Try it out</a>
-        </div>
-      </section>
+    <!-- Centered, box-less welcome content -->
+    <main class="centerfold">
+      <h1 class="big-title">Prompt Writer is installed</h1>
+      <p class="sublead">To start using the extension, please:</p>
+
+      <ol class="steps">
+        <li>Open <b>chat.openai.com</b> (or any chatbot you prefer).</li>
+        <li>Type any text and <b>select it</b>.</li>
+        <li><b>Right-click</b> the selection → <b>Prompt Writer</b>.</li>
+        <li>Click <b>Optimize as Prompt</b> and continue with the mode you want to use.</li>
+      </ol>
+
+      <div class="actions">
+        <a class="btn primary xl" href="https://chat.openai.com" target="_blank" rel="noopener">Try it out</a>
+      </div>
     </main>
-
-    
-
-    <footer>© <span id="year"></span> Prompt Writer</footer>
   </div>
 
   <script>
-    // Update year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Optional: capture UTM & extension version from query to analytics/localStorage
+    // Optional: capture extension version from query string for basic analytics/debugging
     const params = new URLSearchParams(location.search);
     const fromExt = params.get('v');
-    if(fromExt){
+    if (fromExt) {
       localStorage.setItem('ext_version', fromExt);
     }
   </script>
