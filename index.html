@@ -68,14 +68,13 @@
     @media (max-width: 420px){
       .big-title{ white-space:normal; }
     }
-    /* Screenshots under steps (centered, readable size) */
+    /* Screenshots under steps — compact, centered, responsive */
     .step-shot{
       display:block;
-      margin:10px auto 0;                 /* next line, centered */
-      width:clamp(280px, 72vw, 900px);    /* responsive, comfortable cap */
+      margin:10px auto 0;              /* next line, centered */
+      width:clamp(320px, 60vw, 760px); /* ~60% viewport width, capped at ~760px */
       height:auto;
       object-fit:contain;
-      /* no borders or brand changes */
     }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
