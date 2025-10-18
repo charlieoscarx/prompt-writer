@@ -96,6 +96,28 @@
       line-height: 1.48;
       margin: 0 0 28px;             /* gap to next block (steps/screenshots) */
     }
+
+    /* Center the ordered list content and its numbering */
+    .steps{
+      list-style-position: inside;   /* number becomes part of the text block */
+      padding-left: 0;               /* remove default left indent */
+      text-align: center;            /* center the content block */
+    }
+
+    /* Step captions (only for items that have a screenshot inside) */
+    .steps li:has(.step-shot){
+      font-size: clamp(16px, 2vw, 20px);  /* ≈20px on desktop */
+      line-height: 1.48;                  /* ~28–30px line-height */
+    }
+
+    /* Screenshot spacing and centering under its step */
+    .step-shot{
+      display: block;
+      margin: 26px auto 0;           /* ← gap from caption to image ≈26px; centered */
+      width: clamp(320px, 60vw, 760px);
+      height: auto;
+      object-fit: contain;
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
