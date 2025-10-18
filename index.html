@@ -76,6 +76,26 @@
       height:auto;
       object-fit:contain;
     }
+    /* Place the title block ~96px from the page top (no redesign) */
+    .centerfold{
+      justify-content: flex-start;  /* override previous center alignment vertically */
+      padding-top: 96px;            /* ~96px from top to the title block */
+    }
+
+    /* Title: ≈64px, tight line height, 18px gap to subline.
+       Keep previous inline-flex & baseline alignment for sparkles. */
+    .big-title{
+      font-size: clamp(40px, 4.8vw, 64px);
+      line-height: 1.12;
+      margin: 0 0 18px;             /* bottom gap to subline ≈18px */
+    }
+
+    /* Subline: ≈20px, comfortable line height, 28px gap to next content */
+    .sublead{
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.48;
+      margin: 0 0 28px;             /* gap to next block (steps/screenshots) */
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
