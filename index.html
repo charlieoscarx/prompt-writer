@@ -182,7 +182,7 @@
     /* === Vertical Whitespace Reduction === */
     /* 1) Сжать верхние отступы контейнера и хедера */
     .wrap{ padding-top:28px !important; }           /* было заметно больше */
-    header{ margin-bottom:12px !important; }         /* минимальный зазор под лого */
+    header{ margin-bottom:8px !important; }         /* минимальный зазор под лого */
 
     /* 2) Перестать «центровать по высоте» главный блок, подтянуть его вверх */
     .centerfold{
@@ -253,6 +253,27 @@
     @media (max-width: 600px){
       .wrap{ padding-top:22px !important; }
       .centerfold{ padding-top:10px !important; min-height:auto !important; }
+    }
+
+    /* === Unified Step Spacing === */
+    /* 1) Define one source of truth for step spacing */
+    .steps{
+      --step-gap: 10px; /* matches the current gap between #1 and #2 */
+    }
+
+    /* 2) The gap between two text steps */
+    .steps li{
+      margin: var(--step-gap) 0 !important;  /* this is the #1 ↔ #2 spacing */
+    }
+
+    /* 3) Make the screenshot spacing match the same gap:
+       - text → screenshot  = var(--step-gap)  (top margin)
+       - screenshot → next text = var(--step-gap)  (comes from the li margins)
+       So the screenshot's bottom margin must be 0 to avoid double spacing. */
+    .step-shot{
+      display: block;
+      margin: var(--step-gap) auto 0 !important; /* top = gap, bottom = 0 */
+      /* keep existing width/shadow rules intact */
     }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
