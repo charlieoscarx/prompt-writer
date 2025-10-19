@@ -67,7 +67,7 @@
       line-height: 1.6;
     }
     .steps{display:inline-block;text-align:left;margin:0 auto;padding-left:22px}
-    .steps li{margin:15px 0}
+    .steps li{margin:10px 0}
     .btn.xl{padding:16px 24px;font-size:18px;border-radius:16px}
     /* Allow wrapping on extra small screens to avoid overflow */
     @media (max-width: 420px){
@@ -126,7 +126,7 @@
     .step-shot{
       box-shadow: 0 14px 40px rgba(0,0,0,.35), 0 2px 10px rgba(0,0,0,.18);
       display: block;
-      margin: 30px auto 0;           /* ← gap from caption to image ≈32px; centered */
+      margin: 26px auto 0;           /* ← gap from caption to image ≈26px; centered */
       width: clamp(320px, 60vw, 760px);
       height: auto;
       object-fit: contain;
@@ -181,8 +181,8 @@
 
     /* === Vertical Whitespace Reduction === */
     /* 1) Сжать верхние отступы контейнера и хедера */
-    .wrap{ padding-top:35px !important; }           /* было заметно больше */
-    header{ margin-bottom:80px !important; }         /* минимальный зазор под лого */
+    .wrap{ padding-top:28px !important; }           /* было заметно больше */
+    header{ margin-bottom:8px !important; }         /* минимальный зазор под лого */
 
     /* 2) Перестать «центровать по высоте» главный блок, подтянуть его вверх */
     .centerfold{
@@ -192,13 +192,64 @@
     }
 
     /* 3) Уплотнить расстояния между H1 и подзаголовком */
-    .big-title{ margin:0 0 2px !important; }        /* было крупнее */
+    .big-title{ margin:0 0 8px !important; }        /* было крупнее */
     .sublead{  margin:4px 0 14px !important; }      /* ближе к H1, но с «дыханием» */
 
     /* 4) Чуть поджать начало списка шагов от подзаголовка (если видно разрыв) */
     .steps{ margin-top:6px !important; }
 
     /* Мобайл: сохраним комфортные отступы на очень узких/низких экранах */
+    @media (max-width: 600px){
+      .wrap{ padding-top:22px !important; }
+      .centerfold{ padding-top:10px !important; min-height:auto !important; }
+    }
+
+    /* === CSS Overrides for Improved Vertical Rhythm & Readability === */
+    
+    /* 1) Top spacing */
+    .wrap{ padding-top:28px !important; }            /* was visually larger */
+    header{ margin-bottom:8px !important; }          /* minimal gap under brand row */
+
+    .centerfold{
+      justify-content:flex-start !important;         /* was centered vertically */
+      padding-top:12px !important;                   /* slight internal top pad */
+      min-height:calc(100vh - 140px) !important;     /* reduce vertical air */
+    }
+
+    .big-title{ margin:0 0 8px !important; }         /* H1 → subheading gap */
+    .sublead { margin:6px 0 14px !important; }       /* tighter to H1 */
+    .steps   { margin-top:6px !important; }          /* subheading → steps */
+
+    /* 2) Steps readability */
+    .steps{
+      display:inline-block;      /* keeps the block centered */
+      text-align:left;           /* content inside is left-aligned */
+    }
+    .steps li{ margin:10px 0; }  /* consistent vertical rhythm */
+
+    /* 3) Step screenshots */
+    .step-shot{
+      display:block;
+      margin:8px auto 18px;                     /* 8 top ties to step; 18 bottom closes the scene */
+      width:clamp(320px, 72vw, 920px);          /* consistent responsive size */
+      height:auto;
+      object-fit:contain;
+      /* keep existing box-shadow as is */
+    }
+
+    /* 4) Bottom CTA area */
+    .post-steps{ text-align:center; margin-top:24px; }
+    .post-steps-note{ margin:0 0 10px; }        /* slightly closer to buttons */
+
+    .providers{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;                                 /* even spacing between buttons */
+      flex-wrap:wrap;                           /* graceful wrap on mobile */
+    }
+
+    /* Responsive safeguard */
     @media (max-width: 600px){
       .wrap{ padding-top:22px !important; }
       .centerfold{ padding-top:10px !important; min-height:auto !important; }
