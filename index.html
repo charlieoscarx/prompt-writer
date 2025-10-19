@@ -155,6 +155,29 @@
       border-radius: 12px;
       font-size: 14px;
     }
+
+    /* Плавные переходы для кнопок-провайдеров */
+    .providers .btn.provider{
+      transition: background .2s ease, box-shadow .2s ease, transform .04s ease;
+    }
+
+    /* Hover / keyboard focus: тот же синий, что у старой кнопки "Try it out" */
+    .providers .btn.provider:hover,
+    .providers .btn.provider:focus-visible{
+      background: linear-gradient(180deg, #2F3EB6, #1C2EDE); /* идентично .btn.primary */
+      border-color: #2636c6;
+      color: var(--text);
+      box-shadow: var(--shadow); /* используем токен из :root */
+      transform: translateY(-1px);
+      text-decoration: none; /* убираем подчёркивание на фокусе */
+    }
+
+    /* Уважение пользовательских настроек анимаций */
+    @media (prefers-reduced-motion: reduce){
+      .providers .btn.provider{ transition: none; }
+      .providers .btn.provider:hover,
+      .providers .btn.provider:focus-visible{ transform: none; }
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
