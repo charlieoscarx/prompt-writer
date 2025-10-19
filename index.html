@@ -178,6 +178,31 @@
       .providers .btn.provider:hover,
       .providers .btn.provider:focus-visible{ transform: none; }
     }
+
+    /* === Vertical Whitespace Reduction === */
+    /* 1) Сжать верхние отступы контейнера и хедера */
+    .wrap{ padding-top:28px !important; }           /* было заметно больше */
+    header{ margin-bottom:8px !important; }         /* минимальный зазор под лого */
+
+    /* 2) Перестать «центровать по высоте» главный блок, подтянуть его вверх */
+    .centerfold{
+      justify-content:flex-start !important;        /* было: center */
+      padding-top:12px !important;                  /* небольшой внутренний отступ */
+      min-height:calc(100vh - 140px) !important;    /* чуть меньше, чтобы не создавать лишний воздух */
+    }
+
+    /* 3) Уплотнить расстояния между H1 и подзаголовком */
+    .big-title{ margin:0 0 8px !important; }        /* было крупнее */
+    .sublead{  margin:4px 0 14px !important; }      /* ближе к H1, но с «дыханием» */
+
+    /* 4) Чуть поджать начало списка шагов от подзаголовка (если видно разрыв) */
+    .steps{ margin-top:6px !important; }
+
+    /* Мобайл: сохраним комфортные отступы на очень узких/низких экранах */
+    @media (max-width: 600px){
+      .wrap{ padding-top:22px !important; }
+      .centerfold{ padding-top:10px !important; min-height:auto !important; }
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
