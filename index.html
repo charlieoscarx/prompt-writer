@@ -130,6 +130,31 @@
       height: auto;
       object-fit: contain;
     }
+
+    /* Post-steps section (chatbot provider buttons) */
+    .post-steps{
+      text-align: center;
+    }
+
+    .post-steps-note{
+      font-size: clamp(16px, 1.4vw, 20px);  /* same as steps text */
+      line-height: 1.6;
+      margin: 0 0 16px;
+    }
+
+    .providers{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .providers .btn.provider{
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
@@ -151,7 +176,7 @@
       </h1>
       <p class="sublead">To start using the extension, please:</p>
       <ol class="steps">
-        <li>Open your chatbot or any webpage.</li>
+        <li>Open <b>chat.openai.com</b> (or any chatbot you prefer).</li>
         <li>
     Type any text and <b>select it</b>.
     <img class="step-shot" src="screenshot-1.png" alt="Screenshot: select text" />
@@ -165,8 +190,15 @@
     <img class="step-shot" src="screenshot-3.png" alt="Screenshot: Optimize as Prompt" />
   </li>
       </ol>
-      <div class="actions" style="margin-top:28px">
-        <a class="btn primary xl" href="https://chat.openai.com" target="_blank" rel="noopener">Try it out</a>
+      <div class="post-steps" style="margin-top:28px">
+        <p class="post-steps-note">Try it out with your favourite chatbot</p>
+        <div class="providers">
+          <a class="btn ghost provider" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a>
+          <a class="btn ghost provider" href="https://claude.ai/" target="_blank" rel="noopener">Claude</a>
+          <a class="btn ghost provider" href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>
+          <a class="btn ghost provider" href="https://www.perplexity.ai/" target="_blank" rel="noopener">Perplexity</a>
+          <a class="btn ghost provider" href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a>
+        </div>
       </div>
     </main>
 
