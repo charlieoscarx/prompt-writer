@@ -275,6 +275,43 @@
       margin: var(--step-gap) auto 0 !important; /* top = gap, bottom = 0 */
       /* keep existing width/shadow rules intact */
     }
+
+    /* === A) Single content column for consistent horizontal alignment === */
+    /* Define a shared content width for the centerfold area */
+    .centerfold{
+      --content-max: clamp(720px, 86vw, 980px); /* one column for H1, steps, screenshots, bottom text */
+    }
+
+    /* Apply the same column to all key blocks */
+    .big-title,
+    .sublead,
+    .steps,
+    .step-shot,
+    .post-steps,
+    .post-steps-note,
+    .providers{
+      max-width: var(--content-max);
+      margin-left: auto;
+      margin-right: auto;  /* centers the column */
+    }
+
+    /* Keep steps readable: block centered, text inside left-aligned (if not already) */
+    .steps{
+      display: inline-block;
+      text-align: left;
+    }
+
+    /* === B) Make screenshots smaller and lighter visually === */
+    /* If .step-shot has width set earlier, override it here */
+    .step-shot{
+      width: clamp(280px, 60vw, 760px) !important;  /* smaller than before */
+      height: auto;
+      object-fit: contain;
+      /* keep existing shadow; spacing can stay as you have it */
+    }
+
+    /* Optional tiny polish so the bottom CTA reads as one block with the column */
+    .post-steps{ text-align: center; }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
