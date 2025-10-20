@@ -313,37 +313,37 @@
     /* Optional tiny polish so the bottom CTA reads as one block with the column */
     .post-steps{ text-align: center; }
 
-    /* === Step Screenshot Spacing: 2× the text-only gap === */
-    /* 1) Define one source of truth for the inter-step gap.
-       Set this to the CURRENT margin used between two text-only steps. */
+    /* === Step Screenshot Spacing: 4× the text-only gap === */
+    /* 1) Source of truth for spacing */
     .steps{
-      --step-gap: 10px; /* already defined above, keeping for clarity */
+      /* keep your current base step gap here if different */
+      --step-gap: 10px;
+      /* multiplier for screenshots: now 4× (previously 2×) */
+      --shot-gap-mult: 4;
     }
 
-    /* Keep normal gap between text-only steps driven by the variable */
+    /* 2) Base rhythm between text-only steps stays the same */
     .steps li{
       margin-top: var(--step-gap) !important;
       margin-bottom: var(--step-gap) !important;
     }
 
-    /* 2) Double the gap from TEXT → SCREENSHOT (inside the same <li>) */
+    /* 3) Screenshot spacing = 4× both above and below */
     .step-shot{
       display: block;
-      margin-top: calc(2 * var(--step-gap)) !important;   /* text → screenshot = 2× */
-      margin-bottom: 0 !important;                        /* we'll handle the gap to next text below */
+      /* text → screenshot (inside the same <li>) = 4× */
+      margin-top: calc(var(--shot-gap-mult) * var(--step-gap)) !important;
+      /* screenshot → next text controlled by this bottom margin = 4× */
+      margin-bottom: calc(var(--shot-gap-mult) * var(--step-gap)) !important;
     }
 
-    /* 3) Double the gap from SCREENSHOT → NEXT TEXT:
-       Remove the default top margin on the FOLLOWING <li> when the previous one has a screenshot.
-       This way, the entire gap is controlled by the previous block's bottom "space" and equals 2×. */
-    .steps li:has(.step-shot) + li{
-      margin-top: 0 !important; /* prevents extra stacking so total = 2×, not 3× */
-    }
-
-    /* (Optional safety) If you also set a bottom margin on the <li> with a screenshot elsewhere,
-       ensure it's 0 so the total doesn't exceed 2×. */
+    /* 4) Prevent extra stacking from li margins around screenshot items:
+       we zero out the adjacent li margins so the only space below the screenshot is the 4× image bottom margin */
     .steps li:has(.step-shot){
-      margin-bottom: calc(2 * var(--step-gap)) !important; /* full 2× gap after screenshot before next item */
+      margin-bottom: 0 !important;
+    }
+    .steps li:has(.step-shot) + li{
+      margin-top: 0 !important;
     }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
