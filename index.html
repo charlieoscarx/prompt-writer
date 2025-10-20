@@ -346,23 +346,23 @@
       margin-top: 0 !important;
     }
 
-    /* === Double the size of footer provider buttons === */
+    /* === Make footer provider buttons 1.5× smaller === */
     .providers .btn.provider{
-      /* Text exactly 2× (was 14px → now 28px) */
-      font-size: 200% !important;
+      /* Text 1.5× smaller (was 14px → now ~9.33px via 66.67%) */
+      font-size: 66.67% !important;
       line-height: 1.15 !important;
 
-      /* Box exactly 2× (was 10px 14px → now 20px 28px) */
-      padding: 20px 28px !important;
+      /* Box 1.5× smaller (was 10px 14px → now 7px 9px) */
+      padding: 7px 9px !important;
 
-      /* Slightly larger radius to keep proportions consistent with bigger size */
-      border-radius: 16px !important;
+      /* Proportionally smaller radius (was 12px → now 8px) */
+      border-radius: 8px !important;
 
-      /* Keep existing transitions/hover from earlier; ensure they feel snappy at bigger size */
+      /* Keep existing transitions/hover from earlier */
       transition: background .2s ease, box-shadow .2s ease, transform .04s ease !important;
     }
 
-    /* Keep row tidy when buttons grow (layout only, no style changes) */
+    /* Keep row tidy with smaller buttons (layout only, no style changes) */
     .providers{
       gap: 10px;          /* keep as is */
       flex-wrap: wrap;    /* allows clean wrap on smaller screens */
