@@ -312,6 +312,39 @@
 
     /* Optional tiny polish so the bottom CTA reads as one block with the column */
     .post-steps{ text-align: center; }
+
+    /* === Step Screenshot Spacing: 2× the text-only gap === */
+    /* 1) Define one source of truth for the inter-step gap.
+       Set this to the CURRENT margin used between two text-only steps. */
+    .steps{
+      --step-gap: 10px; /* already defined above, keeping for clarity */
+    }
+
+    /* Keep normal gap between text-only steps driven by the variable */
+    .steps li{
+      margin-top: var(--step-gap) !important;
+      margin-bottom: var(--step-gap) !important;
+    }
+
+    /* 2) Double the gap from TEXT → SCREENSHOT (inside the same <li>) */
+    .step-shot{
+      display: block;
+      margin-top: calc(2 * var(--step-gap)) !important;   /* text → screenshot = 2× */
+      margin-bottom: 0 !important;                        /* we'll handle the gap to next text below */
+    }
+
+    /* 3) Double the gap from SCREENSHOT → NEXT TEXT:
+       Remove the default top margin on the FOLLOWING <li> when the previous one has a screenshot.
+       This way, the entire gap is controlled by the previous block's bottom "space" and equals 2×. */
+    .steps li:has(.step-shot) + li{
+      margin-top: 0 !important; /* prevents extra stacking so total = 2×, not 3× */
+    }
+
+    /* (Optional safety) If you also set a bottom margin on the <li> with a screenshot elsewhere,
+       ensure it's 0 so the total doesn't exceed 2×. */
+    .steps li:has(.step-shot){
+      margin-bottom: calc(2 * var(--step-gap)) !important; /* full 2× gap after screenshot before next item */
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
