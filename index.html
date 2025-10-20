@@ -345,6 +345,28 @@
     .steps li:has(.step-shot) + li{
       margin-top: 0 !important;
     }
+
+    /* === Double the size of footer provider buttons === */
+    .providers .btn.provider{
+      /* Text exactly 2× (was 14px → now 28px) */
+      font-size: 200% !important;
+      line-height: 1.15 !important;
+
+      /* Box exactly 2× (was 10px 14px → now 20px 28px) */
+      padding: 20px 28px !important;
+
+      /* Slightly larger radius to keep proportions consistent with bigger size */
+      border-radius: 16px !important;
+
+      /* Keep existing transitions/hover from earlier; ensure they feel snappy at bigger size */
+      transition: background .2s ease, box-shadow .2s ease, transform .04s ease !important;
+    }
+
+    /* Keep row tidy when buttons grow (layout only, no style changes) */
+    .providers{
+      gap: 10px;          /* keep as is */
+      flex-wrap: wrap;    /* allows clean wrap on smaller screens */
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
