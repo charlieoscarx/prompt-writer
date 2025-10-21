@@ -367,6 +367,27 @@
       gap: 10px;          /* keep as is */
       flex-wrap: wrap;    /* allows clean wrap on smaller screens */
     }
+
+    /* === SURGICAL FIXES: Restore original H1 size and sparkles sizing === */
+    .big-title{
+      font-size: clamp(48px, 7vw, 72px) !important;
+      line-height: 1.05 !important;
+      margin: 0 0 10px !important;
+      display: inline-flex;         /* keep sparkles inline */
+      align-items: flex-end;        /* baseline align */
+      gap: .35em;
+      white-space: nowrap;          /* title+sparkles same line on typical widths */
+    }
+    @media (max-width: 420px){
+      .big-title{ white-space: normal; }
+    }
+
+    .sparkles-inline{
+      height: 1em !important;   /* exactly the current font-size of the H1 line */
+      width: auto !important;
+      flex: 0 0 auto;
+      vertical-align: text-bottom;
+    }
   </style>
   <!-- Analytics example (Plausible). Replace with your own script or GA/GTM. -->
   <!-- <script defer data-domain="your-domain.tld" src="https://plausible.io/js/script.js"></script> -->
@@ -382,8 +403,9 @@
     </header>
 
     <main class="centerfold">
-      <h1 style="margin-top:0">Prompt Writer is installed
-  <img src="../sparkles.png" alt="" style="width:22px; height:22px; vertical-align:-4px; margin-left:6px">
+      <h1 class="big-title">
+  Prompt Writer is installed
+  <img class="sparkles-inline" src="../sparkles.png" alt="" aria-hidden="true" />
 </h1>
       <p class="sublead">To get started:</p>
       <ol class="steps">
@@ -401,13 +423,6 @@
     <img class="step-shot" src="../screenshot-3.png" alt="Screenshot: Optimize as Prompt" />
   </li>
       </ol>
-      <div class="panel" style="margin:18px auto 0; max-width:820px">
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px">
-    <img src="../screenshot-1.png" alt="Type text and select it" style="width:100%; border-radius:12px; border:1px solid rgba(255,255,255,.08)">
-    <img src="../screenshot-2.png" alt="Right-click → Prompt Writer" style="width:100%; border-radius:12px; border:1px solid rgba(255,255,255,.08)">
-    <img src="../screenshot-3.png" alt="Click Optimize as Prompt" style="width:100%; border-radius:12px; border:1px solid rgba(255,255,255,.08)">
-  </div>
-</div>
       <div class="post-steps" style="margin-top:28px">
         <p class="post-steps-note">Try it out with your favorite chatbot</p>
         <div class="providers">
